@@ -1,13 +1,14 @@
-package culturemedia.service;
+package culturemedia.service.Impl;
 
 import culturemedia.model.Video;
 import culturemedia.model.View;
 import culturemedia.repository.VideoRepository;
 import culturemedia.repository.ViewsRepository;
+import culturemedia.service.CulturemediaService;
 
 import java.util.List;
 
-public class CulturemediaServiceImpl implements CulturemediaService{
+public class CulturemediaServiceImpl implements CulturemediaService {
 
     private VideoRepository videoRepository;
     private ViewsRepository viewsRepository;
@@ -17,13 +18,13 @@ public class CulturemediaServiceImpl implements CulturemediaService{
         return videoRepository.findAll();
     }
     @Override
-    public Video save(Video save){
-        videoRepository.save(save);
-        return save;
+    public Video save(Video video){
+        videoRepository.save(video);
+        return video;
     }
     @Override
-    public View save(View save){
-        viewsRepository.save(save);
-        return save;
+    public View save(View view){
+        viewsRepository.save(view);
+        return view;
     }
 }
