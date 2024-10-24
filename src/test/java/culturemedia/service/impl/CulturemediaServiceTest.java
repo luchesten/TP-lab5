@@ -14,7 +14,7 @@ import culturemedia.model.Video;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class VideosServiceImplTest {
+public class CulturemediaServiceTest {
 
     private CulturemediaService culturemediaService;
 
