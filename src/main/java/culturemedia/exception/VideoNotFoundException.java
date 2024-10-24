@@ -1,10 +1,15 @@
 package culturemedia.exception;
 
+import java.text.MessageFormat;
+
 public class VideoNotFoundException extends CultureMediaException {
     public VideoNotFoundException() {
-        super("Video not found");
+        super("Videos not exist");
     }
+
     public VideoNotFoundException(String title) {
-        super("Video not found: " + title);
+        super(
+                MessageFormat.format("Video with title {0} not found", title)
+        );
     }
 }
