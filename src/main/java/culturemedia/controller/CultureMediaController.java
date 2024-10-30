@@ -1,4 +1,4 @@
-package culturoteca.controller;
+package culturoteca.controllers;
 
 package culturemedia.controller;
 
