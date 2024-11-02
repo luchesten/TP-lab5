@@ -21,5 +21,8 @@ public class CultureMediaController {
             return videos;
         }
     }
-
+    public Video save(Video video){
+        cultureMediaService.save(video);
+        return video;
+    }
 }
