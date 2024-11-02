@@ -42,25 +42,25 @@ class VideoRepositoryTest {
 
     @Test
     void when_FindByTitle_only_videos_which_contains_the_word_in_the_title_should_be_returned_successfully() {
-        List<Video> videos = videoRepository.find( "Clic" );
+        List<Video> videos = videoRepository.findByTitle( "Clic" );
         assertEquals(2, videos.size());
     }
 
     @Test
     void when_FindByDuration_only_videos_between_the_range_should_be_returned_successfully() {
-        List<Video> videos = videoRepository.find( 4.5, 5.5 );
+        List<Video> videos = videoRepository.findByDuration( 4.5, 5.5 );
         assertEquals(3, videos.size());
     }
 
     @Test
     void when_FindByTitle_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
-        List<Video> videos = videoRepository.find( "Hola" );
+        List<Video> videos = videoRepository.findByTitle( "Hola" );
         assertTrue(videos.isEmpty());
     }
 
     @Test
     void when_FindByDuration_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
-        List<Video> videos = videoRepository.find( 5.8, 7.2 );
+        List<Video> videos = videoRepository.findByDuration( 5.8, 7.2 );
         assertTrue(videos.isEmpty());
     }
 }

@@ -42,31 +42,21 @@ public class CulturemediaServiceImpl implements CulturemediaService {
         return view;
     }
 
-    public List<Video> findByTitle(String title) throws VideoNotFoundException {
-        List<Video> videos = videoRepository.findAll();
-        List<Video> matchingVideos = new ArrayList<>();
-        for (Video video : videos) {
-            if (video.title().toLowerCase().contains(title.toLowerCase())) {
-                matchingVideos.add(video);
-            }
-        }
-        if(matchingVideos.isEmpty()) {
-            throw new VideoNotFoundException(title);
+    @Override
+    public List<Video> findByDuration(Double fromDuration, Double toDuration) throws VideoNotFoundException {
+        List<Video> matchingVideos = videoRepository.findByDuration(fromDuration, toDuration);
+        if (matchingVideos.isEmpty()) {
+            throw new VideoNotFoundException();
         }
         return matchingVideos;
     }
 
-    public List<Video> findByDuration(Double duration) throws VideoNotFoundException {
-        List<Video> videos = videoRepository.findAll();
-        List<Video> savedVideos = new ArrayList<>();
-        for (Video video : videos) {
-            if (video.duration().equals(duration)) {
-                savedVideos.add(video);
-            }
+    @Override
+    public List<Video> findByTitle(String title) throws VideoNotFoundException {
+        List<Video> matchingVideos = videoRepository.findByTitle(title);
+        if (matchingVideos.isEmpty()) {
+            throw new VideoNotFoundException(title);
         }
-        if (savedVideos.isEmpty()){
-            throw new VideoNotFoundException();
-        }
-        return savedVideos;
+        return matchingVideos;
     }
 }
